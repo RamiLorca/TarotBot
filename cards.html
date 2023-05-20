@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Tarot Reader</title>
+    <link rel='stylesheet' href='cards.css'>
+</head>
+
+<body>
+    <section name="intro">
+        <h1 id="mainHeading">TAROT BOT</h1>
+        <ol>
+            <li>Shuffle the deck as many times as you want.</li>
+            <br>
+            <li>When you're ready, select three cards to reveal.</li>
+            <br>
+            <li>Enter your query, and press <b>Get My Reading</b>.</li>
+        </ol>
+    </section>
+    
+    <button id="shuffle">Shuffle</button>
+    
+    <section id="undrawnCards">
+    <table id="undrawnDeck">
+        <tr>
+            <td id="containsUndrawn">
+                <div id='left' name='left-area' class='deck'></div>
+                <div id="loadingShuffle">
+                    <div class=spinner></div>
+                    <label for="loadingShuffle">Shuffling the cards...</label>
+                </div>
+            </td>
+         </tr>
+    </table>
+    <!-- <div id="loadingShuffle">
+        <div class=spinner></div>
+        <label for="loadingShuffle">Shuffling the cards...</label>
+    </div> -->
+    </section>
+
+    <table id="drawnCards">
+        <tr>
+            <td width='25%' id="revealBoxOne">
+                <div id='one' name='spot-one' class='drawn noDisplay'></div>
+            </td>
+            <td width='25%' id="revealBoxTwo">
+                <div id='two' name='spot-two' class='drawn noDisplay'></div>
+            </td>
+            <td width='25%' id="revealBoxThree">
+                <div id='three' name='spot-three' class='drawn noDisplay'></div>
+            </td>
+        </tr>
+    </table>
+
+    <section id="inputOutput">
+        <div id="userInput">
+            <textarea type="text" rows="10" name="query" id="query" placeholder="Enter your query here."></textarea>
+        </div>
+        <div id="response">
+            <p id="response-para"></p>
+        </div>
+        <div id="loadingReading" name="loadingReading">
+            <div class="spinner"></div>
+            <label for="loadingReading">Reading the cards...</label>
+        </div>
+    </section>
+
+    <button id="getReading">Get My Reading</button>
+
+    <footer>
+        <p>Made by Ramiro Lorca</p>
+    </footer>
+
+    <script src='tarot2.js'></script>
+
+</body>
+
+</html>
