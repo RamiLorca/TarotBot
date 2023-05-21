@@ -209,16 +209,14 @@ document.addEventListener( 'DOMContentLoaded', () => {
         shuffles += 1;
         
     }
-
-    shuffleButton.addEventListener('click', shuffleDeck);
-    shuffleDeck();
     
     async function sendUserRequest(message) {
 
         document.getElementById("userInput").classList.add("noDisplay");
         displayReadingLoading();
-
-        const apiKey = "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";
+        
+        // const apiKey = API_KEY;
+        /*Note: need to add API key */ 
         const endPoint = `https://api.openai.com/v1/completions`;
 
         const response = await fetch(endPoint, {
@@ -244,10 +242,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
         return responseBox.innerHTML = data.choices[0].text;
     }
-
-    
+ 
     function composeMessage(){
-        //add stuff to combine user input with cards and pre-prompt
 
         const cardOne = document.querySelector('#one div').innerText;
         const cardTwo = document.querySelector('#two div').innerText;
@@ -267,5 +263,9 @@ document.addEventListener( 'DOMContentLoaded', () => {
     }
 
     getReadingButton.addEventListener('click', composeMessage);
+
+    shuffleButton.addEventListener('click', shuffleDeck);
+
+    shuffleDeck();
       
 }); 
