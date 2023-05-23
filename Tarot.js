@@ -1,3 +1,5 @@
+const apiKey = process.env.TAROT_3;
+
 document.addEventListener( 'DOMContentLoaded', () => {
 
     let mainDeck = [
@@ -214,8 +216,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
         document.getElementById("userInput").classList.add("noDisplay");
         displayReadingLoading();
-        
-        const apiKey = process.env.TAROT_3;
 
         const endPoint = `https://api.openai.com/v1/completions`;
 
