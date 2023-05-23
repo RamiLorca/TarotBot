@@ -215,8 +215,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
         document.getElementById("userInput").classList.add("noDisplay");
         displayReadingLoading();
         
-        // const apiKey = API_KEY;
-        /*Note: need to add API key */ 
+        const apiKey = process.env.TAROT_3;
+
         const endPoint = `https://api.openai.com/v1/completions`;
 
         const response = await fetch(endPoint, {
@@ -266,6 +266,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
     shuffleButton.addEventListener('click', shuffleDeck);
 
-    shuffleDeck();
+    shuffleDeck(); 
       
 }); 
