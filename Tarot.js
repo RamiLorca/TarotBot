@@ -215,14 +215,15 @@ document.addEventListener( 'DOMContentLoaded', () => {
         document.getElementById("userInput").classList.add("noDisplay");
         displayReadingLoading();
 
-        const apiKey = ${TAROT_3};
+        // "Authorization": `Bearer ${apiKey}`,
+        // const apiKey = ${TAROT_3};
         const endPoint = `https://api.openai.com/v1/completions`;
 
         const response = await fetch(endPoint, {
             method: "POST",
             headers: {
                 "Content-Type": `application/json`,
-                "Authorization": `Bearer ${apiKey}`,
+                "Authorization": `Bearer ${TAROT_3}`,
             },
             body: JSON.stringify({
                 model: "text-davinci-003",
