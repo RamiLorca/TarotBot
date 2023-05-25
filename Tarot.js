@@ -215,15 +215,12 @@ document.addEventListener( 'DOMContentLoaded', () => {
         document.getElementById("userInput").classList.add("noDisplay");
         displayReadingLoading();
 
-
-        const apiKey = process.env.TAROT_3;
-        const endPoint = `https://api.openai.com/v1/completions`;
+        const endPoint = `https://tarotbotbackend-production.up.railway.app/reading`;
 
         const response = await fetch(endPoint, {
             method: "POST",
             headers: {
                 "Content-Type": `application/json`,
-                "Authorization": `Bearer ${apiKey}`,
             },
             body: JSON.stringify({
                 model: "text-davinci-003",
