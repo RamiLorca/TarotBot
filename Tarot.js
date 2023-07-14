@@ -87,11 +87,16 @@ document.addEventListener( 'DOMContentLoaded', () => {
     const threeDiv = document.getElementById("three");
     const shuffleButton = document.getElementById("shuffle");
     const getReadingButton = document.getElementById("getReading");
+    const startOverButton = document.getElementById("startOver");
     const responseBox = document.getElementById("response-para");
     const readingLoader = document.getElementById("loadingReading");
 
     let cardsPulled = 0;
     let shuffles = 0;
+
+    function reloadPage(){
+        location.reload();
+    }
 
     function generateCards(deck) {
         while(leftDiv.firstChild) {
@@ -183,6 +188,16 @@ document.addEventListener( 'DOMContentLoaded', () => {
         readingLoader.classList.remove("display");
     }
 
+    function switchButtons(){
+        if(!getReadingButton.classList.contains("noDisplay")){
+            getReadingButton.classList.add("noDisplay");
+            startOverButton.classList.remove("noDisplay");
+        }else{
+            startOverButton.classList.add("noDisplay");
+            getReadingButton.classList.remove("noDisplay");
+        }
+    }
+
     function shuffleDeck() {
 
         for (let i = mainDeck.length - 1; i > 0; i--) {
@@ -237,6 +252,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
         hideLoading();
         document.getElementById("response").classList.add("display");
 
+        switchButtons();
+
         return responseBox.innerHTML = data.choices[0].text;
     }
  
@@ -248,7 +265,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
         const userQuery = document.querySelector('#query').value;
 
         let message = "You will act like a master tarot reader and only respond with things a real tarot reader would say. I will list 3 cards that I've pulled from a shuffled deck " +
-                      "and placed in front of me from left to right. I will also provide you with a query, descibing the situation " +
+                      "and placed in front of me from left to right. I will also provide you with a query, describing the situation " +
                       "or question for which you will provide insight. You will use all available sources to provide clear and direct advice, " +
                       "paying special attention to how the card meanings might change based on their relative positions. " +
                       
@@ -260,6 +277,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
     }
 
     getReadingButton.addEventListener('click', composeMessage);
+
+    startOverButton.addEventListener('click', reloadPage);
 
     shuffleButton.addEventListener('click', shuffleDeck);
 
